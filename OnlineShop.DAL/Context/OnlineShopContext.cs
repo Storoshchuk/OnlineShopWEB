@@ -1,11 +1,12 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using OnlineShop.DAL.Entities;
 
-namespace ToDoList.Models
+namespace OnlineShop.DAL.Context
 {
-    public class Context1: IdentityDbContext<User>
+    public class OnlineShopContext: IdentityDbContext<User>
     {
-        public Context1(DbContextOptions<Context1> options)
+        public OnlineShopContext(DbContextOptions<OnlineShopContext> options)
             : base(options)
         {
         }

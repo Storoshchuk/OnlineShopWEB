@@ -16,12 +16,12 @@ namespace ToDoList.Controllers
     [Route("api/[controller]")]
     public class TaskController : Controller
     {
-        private readonly ITaskRepository _repository;
+        private readonly ITaskRepository1 _repository;
         private readonly ILogger _logger;
         private readonly ClaimsPrincipal _caller;
-        private readonly Context _appDbContext;
+        private readonly Context1 _appDbContext;
 
-        public TaskController(ITaskRepository repo, ILogger<TaskController> logger, UserManager<User> userManager, Context appDbContext, IHttpContextAccessor httpContextAccessor)
+        public TaskController(ITaskRepository1 repo, ILogger<TaskController> logger, UserManager<User> userManager, Context1 appDbContext, IHttpContextAccessor httpContextAccessor)
         {
             _repository = repo;
             _logger = logger;

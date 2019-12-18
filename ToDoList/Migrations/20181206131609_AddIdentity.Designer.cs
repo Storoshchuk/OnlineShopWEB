@@ -9,7 +9,7 @@ using ToDoList.Models;
 
 namespace ToDoList.Migrations
 {
-    [DbContext(typeof(Context))]
+    [DbContext(typeof(Context1))]
     [Migration("20181206131609_AddIdentity")]
     partial class AddIdentity
     {

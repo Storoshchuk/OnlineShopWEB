@@ -20,13 +20,13 @@ namespace ToDoList.Controllers
     [ApiController]
     public class AccountController : ControllerBase
     {
-        private readonly Context _appDbContext;
+        private readonly Context1 _appDbContext;
         private readonly UserManager<User> _userManager;
         private readonly IMapper _mapper;
         private readonly IJwtProvider _jwtFactory;
         private readonly JwtIssuerOptions _jwtOptions;
 
-        public AccountController(UserManager<User> userManager, IMapper mapper, Context appDbContext, IJwtProvider jwtFactory, IOptions<JwtIssuerOptions> jwtOptions)
+        public AccountController(UserManager<User> userManager, IMapper mapper, Context1 appDbContext, IJwtProvider jwtFactory, IOptions<JwtIssuerOptions> jwtOptions)
         {
             _userManager = userManager;
             _mapper = mapper;

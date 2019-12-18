@@ -6,7 +6,7 @@ using ToDoList.Models;
 
 namespace ToDoList.Interfaces
 {
-    public interface ITaskRepository
+    public interface ITaskRepository1
     {
         Task<IEnumerable<ToDoItem>> GetAllAsync(string userId);
         Task<ToDoItem> GetByIdAsync(int? id);

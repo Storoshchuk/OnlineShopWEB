@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace ToDoList.Repositories
 {
-    public class TaskRepository: ITaskRepository
+    public class TaskRepository1: ITaskRepository1
     {
-        private readonly Context _context;
+        private readonly Context1 _context;
 
-        public TaskRepository(Context context)
+        public TaskRepository1(Context1 context)
         {
             _context = context;
         }

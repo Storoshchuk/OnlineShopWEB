@@ -18,6 +18,10 @@ using System;
 using Microsoft.AspNetCore.Identity;
 using AutoMapper;
 using ToDoList.ViewModels;
+using OnlineShop.DAL.Context;
+using OnlineShop.DAL.UnitOfWork;
+using OnlineShop.Services.Interfaces;
+using OnlineShop.Services.Services;
 
 namespace ToDoList
 {
@@ -93,16 +97,20 @@ namespace ToDoList
                 o.Password.RequiredLength = 6;
             });
             builder = new IdentityBuilder(builder.UserType, typeof(IdentityRole), builder.Services);
-            builder.AddEntityFrameworkStores<Context>().AddDefaultTokenProviders();
+            //builder.AddEntityFrameworkStores<Context>().AddDefaultTokenProviders();
 
-            services.AddAutoMapper(opt => opt.CreateMap<RegistrationViewModel, User>().ForSourceMember(x => x.Password, y => y.DoNotValidate()));
+            //services.AddAutoMapper(opt => opt.CreateMap<RegistrationViewModel, User>().ForSourceMember(x => x.Password, y => y.DoNotValidate()));
 
 
-            services.AddDbContext<Context>(opt => opt.UseSqlServer(Configuration.GetConnectionString("ToDoDb")));
+            services.AddDbContext<OnlineShopContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("ToDoDb")));
             services.AddMvc();
 
             services.AddSwaggerGen(c => c.SwaggerDoc("v1", new Info { Title = "ToDo API", Version = "v1" }));
-            services.AddTransient<ITaskRepository, TaskRepository>();
+
+            //services.AddTransient<ITaskRepository, TaskRepository>();
+
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddTransient<IFeedbackService, FeedbackService>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
